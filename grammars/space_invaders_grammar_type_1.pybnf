@@ -1,0 +1,16 @@
+S               ::= <loop>
+<loop>          ::= <play> <loop>
+<play>          ::= <move> | <shoot> | <wait> | <scout> | <seek1>
+<wait>          ::= <pause> <repeat>
+<scout>         ::= <check> <repeat>
+<seek1>         ::= <find_lowest> <repeat>
+<shoot>         ::= <fire> <repeat>
+<move>          ::= <direction> <repeat>
+<direction>     ::= <left> | <right>
+<left>          ::= 3 | 5
+<right>         ::= 2 | 4
+<fire>          ::= 1
+<pause>         ::= 0
+<check>         ::= 6
+<find_lowest>   ::= 8
+<repeat>        ::= -1- | -2- | -3- | -4- | -5- | -6-

@@ -1,0 +1,24 @@
+S                       ::= <setup><main>
+<setup>                 ::= <newline> bound_box_height = <bound_box_height> <newline> bound_box_width = <bound_box_width><newline>
+<main>                  ::= if (<condition>): <statements> <newline> <reset_indent> else: <statements>
+<statements>            ::= <newline><indent><ifs> | <newline><indent><push_tree><ifs><newline><pop_tree><match_tree><elses>
+<ifs>                   ::= if (<condition>): <newline> <action> | if (<condition>): <statements> 
+<elses>                 ::= else: <newline> <action> |  else: <statements>
+<condition>             ::= <check> <comparison> <nums>
+<check>                 ::= check_invader_amount(frame) | check_invader_height(frame) | check_block_width(frame)
+<action>                ::= <indent><seek_lowest><unindent> | <indent><seek_sides><unindent> | <indent><check_bounding_box><unindent>
+<seek_lowest>           ::= set_action(seek_lowest_invader(frame, <boolean>, <boolean>))
+<seek_sides>            ::= set_action(seek_side_invader(frame, <boolean>))
+<check_bounding_box>    ::= set_action(check_bounding_box(frame, bound_box_height, bound_box_width))
+<bound_box_height>      ::= 5 | 6 | 7
+<bound_box_width>       ::= 4 | 5 | 6 | 7 | 8 | 9 | 10
+<nums>                  ::= 5 | 10 | 15 | 25 | 40 | 50 | 60 | 75 | 
+<boolean>               ::= True | False
+<comparison>            ::= -le- | -ge-
+<newline>               ::= -NL-
+<indent>                ::= -I-
+<unindent>              ::= -X-
+<reset_indent>          ::= $
+<match_tree>            ::= -M-
+<pop_tree>              ::= -PP-
+<push_tree>             ::= -PH-

@@ -1,0 +1,7 @@
+S               ::= <expr>
+<expr>          ::= <op>
+<sub-expr>      ::= <func> | <var> | <op>
+<func>          ::= psin(<sub-expr>) | pcos(<sub-expr>) | pow2(<sub-expr>) | neg(<sub-expr>)
+<op>            ::= <push_tree>add(<sub-expr>, <sub-expr>) | <push_tree>sub(<sub-expr>, <sub-expr>) | <push_tree>protected_div(<sub-expr>, <sub-expr>) | <push_tree>mul(<sub-expr>, <sub-expr>)
+<var>           ::= x | 1
+<push_tree>     ::= -P-
